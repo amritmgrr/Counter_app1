@@ -9,38 +9,35 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterCubit(),
-      child: BlocBuilder<CounterCubit, int>(
-        builder: (context, state) {
-          return Scaffold(
-            body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "$state",
-                  style: TextStyle(fontSize: 60),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ElevatedButton(
-                        onPressed: () {
-                          BlocProvider.of<CounterCubit>(context).increase();
-                        },
-                        child: Text("+")),
-                    ElevatedButton(
-                        onPressed: () {
-                          BlocProvider.of<CounterCubit>(context).decrease();
-                        },
-                        child: Text("-")),
-                  ],
-                )
-              ],
-            ),
-          );
-        },
-      ),
+    return BlocBuilder<CounterCubit, int>(
+      builder: (context, state) {
+        return Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "$state",
+                style: TextStyle(fontSize: 60),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        BlocProvider.of<CounterCubit>(context).increase();
+                      },
+                      child: Text("+")),
+                  ElevatedButton(
+                      onPressed: () {
+                        BlocProvider.of<CounterCubit>(context).decrease();
+                      },
+                      child: Text("-")),
+                ],
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }
